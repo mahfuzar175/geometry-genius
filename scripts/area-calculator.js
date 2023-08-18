@@ -32,6 +32,12 @@ function calculateRectangleArea(){
     const length = parseFloat(lengthValuText);
     console.log(length);
 
+    // valided input: width and length
+    if(isNaN(width) || isNaN(length)){
+        alert('please insert a number');
+        return;
+    }
+
     // calculate area
     const area = width * length;
     console.log(area);
@@ -54,6 +60,12 @@ function calculateParallelogramArea(){
     const height = getInputValue('parallelogram-height');
     // console.log(height);
 
+    // valided
+    if(isNaN(base) || isNaN(height)){
+        alert('Please insert a number');
+        return;
+    }
+
     const area = base * height;
     setElementInnerText('parallelogram-area', area);
 }
@@ -63,7 +75,8 @@ function calculateEllipseArea(){
     const majorRadious = getInputValue('ellipse-major-radious');
     const minorRadious = getInputValue('ellipse-minor-radious');
     const area = 3.14 * majorRadious * minorRadious;
-    setElementInnerText('ellipse-area', area);
+    const areaTwoDecimal = area.toFixed(2);
+    setElementInnerText('ellipse-area', areaTwoDecimal);
 }
 
 // reusable get input value field in number
@@ -80,3 +93,13 @@ function setElementInnerText(elemenetId, area){
     const elemenet = document.getElementById(elemenetId);
     elemenet.innerText = area;
 }
+
+ 
+
+
+
+// Data validation
+/**
+ * 1. set the proper type of the input field.(number, data, email)
+ * 2. check type using typeof
+ */
